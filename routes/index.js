@@ -15,10 +15,10 @@ router.get('/venmo_oauth', function(req, res) {
 /* response with charity recommendation from JustGiving */
 router.get('/get-charity-recommendation', function(req, res) {
   var appId = 'dc91d19d';
-  var cateogry = req.query.category;
+  var category = req.query.category;
 
   request.get({
-    url: 'https://api.justgiving.com/'+appId+'/v1/charity/search?q='+cateogry,
+    url: 'https://api.justgiving.com/'+appId+'/v1/charity/search?q='+category,
     headers: {
       'Accept': 'application/json'
     }
