@@ -17,7 +17,7 @@ router.post('/donate', function(req, res) {
     {
       form: {
       access_token: req.body.access_token,
-      user_id: "req.body.user_id",
+      user_id: req.body.user_id,
       amount: 5,
       note: "donation made through mylk"
       }
