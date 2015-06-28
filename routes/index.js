@@ -7,8 +7,9 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+/* Redirect from Venmo */
 router.get('/venmo_oauth', function(req, res) {
-  res.render('index', { access_token: req.query.access_token, user_id: "145434160922624933" });
+  res.render('index', { title: "Venmo Redirect", access_token: req.query.access_token, user_id: "145434160922624933" });
 });
 
 router.post('/donate', function(req, res) {
@@ -25,10 +26,10 @@ router.post('/donate', function(req, res) {
     function (error, response, body) {
         if (!error && response.statusCode == 200) {
           console.log(body);
-          res.send("success");
+          res.render('success', { title: "Success" });
         } else {
           console.log(body);
-          res.send("fail");
+          res.render('fail', { title: "Fail", error: JSON.parse(body).error.message });
         }
     }
   );
