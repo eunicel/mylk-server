@@ -1,5 +1,10 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	form
+		div.row
+			div.twelve.columns
+				h2 Donate
+				input(hidden, name="access_token", value="#{access_token}")
+				input(hidden, name="user_id", value="#{user_id}")
+				input(type="submit", value="submit")

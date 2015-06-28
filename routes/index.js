@@ -8,12 +8,16 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/venmo_oauth', function(req, res) {
+  res.render('index', { access_token: req.query.access_token, user_id: "Eunice-Lin" });
+});
+
+router.post('/donate', function(req, res) {
   request.post(
     'https://api.venmo.com/v1/payments',
     {
       form: {
       access_token: req.body.access_token,
-      user_id: req.body.user_id,
+      user_id: "req.body.user_id",
       amount: 5,
       note: "donation made through mylk"
       }
